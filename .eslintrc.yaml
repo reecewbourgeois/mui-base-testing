@@ -1,0 +1,52 @@
+# Links:
+# - 'eslint:recommended' = https://eslint.org/docs/latest/rules/
+# - 'plugin:react/recommended' = https://github.com/jsx-eslint/eslint-plugin-react
+# - 'plugin:import/recommended' = https://github.com/import-js/eslint-plugin-import
+# - 'plugin:jsx-a11y/recommended' = https://github.com/jsx-eslint/eslint-plugin-jsx-a11y
+# - 'plugin:@typescript-eslint/recommended' = https://typescript-eslint.io/rules/
+# - 'plugin:@typescript-eslint/recommended-requiring-type-checking' = https://typescript-eslint.io/rules/
+# - 'eslint-config-prettier' = https://github.com/prettier/eslint-config-prettier
+
+extends: [
+    # By extending from a plugin config, we can get recommended rules without having to add them manually.
+    'eslint:recommended',
+    'plugin:react/recommended',
+    'plugin:import/recommended',
+    'plugin:jsx-a11y/recommended',
+    'plugin:@typescript-eslint/recommended',
+    # Recommended rules that additionally require type information.
+    'plugin:@typescript-eslint/recommended-requiring-type-checking',
+    # This disables the formatting rules in ESLint that Prettier is going to be responsible for handling.
+    # Make sure it's always the last config, so it gets the chance to override other configs.
+    'eslint-config-prettier',
+  ]
+
+parser: '@typescript-eslint/parser'
+
+parserOptions:
+  # Gives parser the relative path to the tsconfig.json file.
+  project: true
+  # Gives parser the absolute path to the tsconfig.json file.
+  tsconfigRootDir: __dirname
+
+plugins:
+  - react
+  - import
+  - jsx-a11y
+  - '@typescript-eslint'
+
+root: true
+
+settings:
+  react:
+    # Tells eslint-plugin-react to automatically detect the version of React to use.
+    version: 'detect'
+
+  # Tells eslint how to resolve imports
+  'import/resolver':
+    node:
+      paths: ['src']
+      extensions: ['.js', '.jsx', '.ts', '.tsx']
+
+rules: {}
+# Add your own rules here to override ones from the extended configs.

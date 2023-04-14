@@ -1,0 +1,22 @@
+node_modules/
+dist/
+
+.eslintrc.yaml
+
+.gitignore
+
+.prettierc.yaml
+.prettierignore
+
+index.html
+
+package.json
+package-lock.json
+
+tsconfig.json
+tsconfig.build.json
+
+vite.config.ts
+
+# Not in root directory
+env.d.ts
