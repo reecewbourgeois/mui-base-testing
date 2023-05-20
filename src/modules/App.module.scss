@@ -1,13 +1,11 @@
-$test: 100vw;
-
 .app {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 
-    width: $test;
-    height: 100vh;
+    width: 100%;
+    height: 100%;
 }
 
 .logo {
