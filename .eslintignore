@@ -1,5 +1,6 @@
 node_modules/
 dist/
+src/assets/
 
 .eslintrc.yaml
 
@@ -19,4 +20,5 @@ tsconfig.build.json
 vite.config.ts
 
 # Not in root directory
-env.d.ts
+*.module.scss.d.ts
+*.module.scss

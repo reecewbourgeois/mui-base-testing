@@ -1,13 +1,13 @@
 {
-  "compilerOptions": {
-    "composite": true,
-    "module": "ESNext",
-    "moduleResolution": "Node",
-    "allowSyntheticDefaultImports": true,
+    "compilerOptions": {
+        "composite": true,
+        "module": "ESNext",
+        "moduleResolution": "Node",
+        "allowSyntheticDefaultImports": true,
 
-    // I don't know why these lines, if omitted, throw an error with VS Code extensions, but they do
-    "forceConsistentCasingInFileNames": true,
-    "strict": true
-  },
-  "include": ["vite.config.ts"]
+        // I don't know why these lines, if omitted, throw an error with VS Code extensions, but they do
+        "forceConsistentCasingInFileNames": true,
+        "strict": true
+    },
+    "include": ["vite.config.ts"]
 }
