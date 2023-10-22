@@ -1,22 +1,28 @@
 import React from 'react';
 import styles from './_AccentTextField.module.scss';
-import { TextFieldBase, TextFieldBaseComponentProps } from '../../component-lib/TextFieldBase';
+import { generateTextFieldBase, TextFieldBaseComponentProps } from '../../component-lib/generateTextFieldBase';
 
 type AccentTextFieldProps = TextFieldBaseComponentProps;
-/**
- * <description here>
- */
+
 export function AccentTextField(props: AccentTextFieldProps): React.ReactElement {
+    const { InputBaseInput, InputBaseLabel, TextFieldBaseHelperText } = generateTextFieldBase({
+        ...props,
+        inputClassName: styles.input,
+        labelClassName: styles.label,
+        helperTextClassName: styles.helperText,
+        disabledClassName: styles.disabled,
+        invalidStateClassName: styles.invalid,
+    });
+
     return (
-        <TextFieldBase
-            {...props}
-            inputClassName={styles.input}
-            inputContainerClassName={styles.inputContainer}
-            labelClassName={styles.label}
-            rootClassName={styles.accentTextFieldContainer}
-            helperTextClassName={styles.helperText}
-            disabledClassName={styles.disabled}
-            invalidStateClassName={styles.invalid}
-        />
+        <div className={styles.accentTextFieldContainer}>
+            <div className={styles.inputContainer}>
+                {InputBaseLabel}
+
+                {InputBaseInput}
+            </div>
+
+            {TextFieldBaseHelperText}
+        </div>
     );
 }
