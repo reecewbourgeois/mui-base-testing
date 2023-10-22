@@ -1,22 +1,16 @@
 import React from 'react';
 import styles from './App.module.scss';
-import { TextFieldBase } from '../../modules/MUI/TextField/Base/_TextFieldBase';
+import { AccentTextField } from '../../modules/AccentTextField/AccentTextField';
 
 export function App(): React.ReactElement {
     return (
         <div className={styles.app}>
-            <TextFieldBase
-                helperText=""
-                id="bob"
-                label="This is Bob"
-                slotProps={{
-                    input: {
-                        className: '',
-                    },
-                    root: {
-                        className: '',
-                    },
-                }}
+            <AccentTextField
+                id="accent-test"
+                label="Country Region"
+                value="Hello"
+                valid={false}
+                helperText="This is a required field"
             />
         </div>
     );

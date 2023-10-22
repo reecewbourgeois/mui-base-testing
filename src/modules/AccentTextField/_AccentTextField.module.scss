@@ -1,0 +1,73 @@
+@use '../../styles/include_me' as *;
+
+$padding: calc($fontSize / 1.5); // Ensures proper scaling of entire component
+$backgroundColor: $primaryBackground;
+
+.accentTextFieldContainer {
+    display: grid;
+    gap: calc($fontSize / 4);
+
+    width: min-content; // Adjust based on font size
+    height: min-content;
+
+    background-color: $backgroundColor;
+
+    padding: $padding;
+
+    .inputContainer {
+        position: relative;
+
+        display: grid;
+
+        .label {
+            position: absolute;
+            top: -$padding; // And for my next trick...
+            left: 2ch; // Show border on left side of label
+
+            padding: 0 1ch; // Spacing between label and border
+
+            font-size: $fontSize;
+            color: $accentColor;
+
+            background-color: $backgroundColor;
+
+            &.invalid {
+                color: $accentColorInvalid;
+            }
+        }
+
+        .input {
+            font-size: $fontSize;
+            color: $textColor;
+
+            background-color: $backgroundColor;
+
+            border: $border $accentColor;
+            border-radius: $borderRadius;
+
+            padding: $padding;
+
+            &:focus-visible {
+                outline: none;
+                border-color: $accentColorFocused;
+            }
+
+            &.invalid {
+                border-color: $accentColorInvalid;
+            }
+
+            &.disabled {
+                border-color: $accentColorDisabled;
+            }
+        }
+    }
+
+    .helperText {
+        font-size: $fontSize;
+        color: $textColor;
+
+        &.invalid {
+            color: $accentColorInvalid;
+        }
+    }
+}

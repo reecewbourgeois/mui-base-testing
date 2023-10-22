@@ -1,3 +1,15 @@
+@font-face {
+    font-family: 'Caskaydia Cove Nerd Font';
+    src:
+        local('Caskaydia Cove Nerd Font'),
+        url('../fonts/CaskaydiaCoveNerdFont-Regular.ttf') format('truetype');
+}
+
+* {
+    font-family: 'Caskaydia Cove Nerd Font';
+    box-sizing: border-box;
+}
+
 // No more vh, vw, and random margins
 html,
 body {
