@@ -1,5 +1,5 @@
 import React, { useMemo } from 'react';
-import { generateInputBase, InputBaseComponentProps, InputBaseProps } from './generateInputBase';
+import { InputBaseGenerator, InputBaseComponentProps, InputBaseProps } from './InputBaseGenerator';
 
 /** All TextFieldBase props minus styling props */
 export type TextFieldBaseComponentProps = InputBaseComponentProps & {
@@ -22,7 +22,7 @@ export type TextFieldBaseProps = TextFieldBaseComponentProps &
  * Generates the base components for a text field with a label
  * and helper text.
  */
-export function generateTextFieldBase(props: TextFieldBaseProps) {
+export function TextFieldBaseGenerator(props: TextFieldBaseProps) {
     const {
         helperText,
         helperTextClassName,
@@ -45,7 +45,7 @@ export function generateTextFieldBase(props: TextFieldBaseProps) {
     }, [helperText, helperTextClassName]);
 
     return {
-        ...generateInputBase({
+        ...InputBaseGenerator({
             ...props,
             disableClassNameMangle: true,
             inputClassName: generateClassName(inputClassName),

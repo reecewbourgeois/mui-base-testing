@@ -28,7 +28,7 @@ export type InputBaseProps = InputBaseComponentProps & {
 /**
  * Generates the base components for an input field with label.
  */
-export function generateInputBase(props: InputBaseProps) {
+export function InputBaseGenerator(props: InputBaseProps) {
     const {
         disableClassNameMangle,
         disabled,

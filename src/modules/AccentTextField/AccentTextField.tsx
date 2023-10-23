@@ -1,11 +1,11 @@
 import React from 'react';
 import styles from './_AccentTextField.module.scss';
-import { generateTextFieldBase, TextFieldBaseComponentProps } from '../../component-lib/generateTextFieldBase';
+import { TextFieldBaseGenerator, TextFieldBaseComponentProps } from '../../component-lib/TextFieldBaseGenerator';
 
 type AccentTextFieldProps = TextFieldBaseComponentProps;
 
 export function AccentTextField(props: AccentTextFieldProps): React.ReactElement {
-    const { InputBaseInput, InputBaseLabel, TextFieldBaseHelperText } = generateTextFieldBase({
+    const { InputBaseInput, InputBaseLabel, TextFieldBaseHelperText } = TextFieldBaseGenerator({
         ...props,
         inputClassName: styles.input,
         labelClassName: styles.label,
