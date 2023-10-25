@@ -22,6 +22,7 @@ export function App(): React.ReactElement {
                 id="accent-autocomplete-test"
                 label="Country Region"
                 helperText="A country region is required"
+                popoverContent={<div>test</div>}
             />
         </div>
     );

@@ -1,10 +1,18 @@
-import React, { useMemo } from 'react';
+import React from 'react';
+import { createPortal } from 'react-dom';
 import { TextFieldBaseGenerator, TextFieldBaseComponentProps, TextFieldBaseProps } from './TextFieldBaseGenerator';
+import { PopoverBaseGenerator } from './PopoverBaseGenerator';
 
 /** All AutocompleteBase props minus styling props */
-export type AutocompleteBaseComponentProps = TextFieldBaseComponentProps;
+export type AutocompleteBaseComponentProps = TextFieldBaseComponentProps & {
+    popoverContent: React.ReactNode;
+};
 
-export type AutocompleteBaseProps = AutocompleteBaseComponentProps & TextFieldBaseProps;
+export type AutocompleteBaseProps = AutocompleteBaseComponentProps &
+    TextFieldBaseProps & {
+        elementIdForOptionsPopup: string;
+        showOptionsPopup: boolean;
+    };
 /**
  * <description here>
  */
@@ -22,7 +30,11 @@ export function AutocompleteBaseGenerator(props: AutocompleteBaseProps) {
         helperText,
         helperTextClassName,
         invalidStateClassName,
+        elementIdForOptionsPopup,
         valid,
+        showOptionsPopup,
+        disableClassNameMangle,
+        popoverContent,
     } = props;
 
     const { InputBaseInput, InputBaseLabel, TextFieldBaseHelperText } = TextFieldBaseGenerator({
@@ -30,15 +42,17 @@ export function AutocompleteBaseGenerator(props: AutocompleteBaseProps) {
         disableClassNameMangle: true,
     });
 
-    // TODO: React Portal
-    const OptionsPopup = useMemo(() => {
-        return <div>test</div>;
-    }, []);
+    const { PopoverBase } = PopoverBaseGenerator({
+        children: popoverContent,
+        parentElementId: elementIdForOptionsPopup,
+        className: 'test',
+        showPopover: showOptionsPopup,
+    });
 
     return {
         InputBaseInput,
         InputBaseLabel,
         TextFieldBaseHelperText,
-        OptionsPopup,
+        PopoverBase,
     };
 }

@@ -10,6 +10,7 @@ export type InputBaseComponentProps = {
     // ** Controlling ** //
     value?: string;
     onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
+    onFocus?: (event: React.FocusEvent<HTMLInputElement, Element>) => void;
     disabled?: boolean;
 };
 
@@ -40,6 +41,7 @@ export function InputBaseGenerator(props: InputBaseProps) {
         onChange,
         placeholder,
         value,
+        onFocus,
     } = props;
 
     // Ensure a unique ID for when this is nested in another component (like the Autocomplete)
@@ -68,6 +70,7 @@ export function InputBaseGenerator(props: InputBaseProps) {
                 onChange={onChange}
                 placeholder={placeholder}
                 disabled={disabled}
+                onFocus={onFocus}
             />
         );
     }, [nonDuplicateId, inputClassName, value, onChange, placeholder, disabled]);

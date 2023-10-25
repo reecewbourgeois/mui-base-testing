@@ -19,7 +19,7 @@ export type TextFieldBaseProps = TextFieldBaseComponentProps &
     };
 
 /**
- * Generates the base components for a text field with a label
+ * Generates unstyled components for a text field with a label
  * and helper text.
  */
 export function TextFieldBaseGenerator(props: TextFieldBaseProps) {

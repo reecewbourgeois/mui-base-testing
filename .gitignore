@@ -24,6 +24,7 @@ dist
 dist-ssr
 *.local
 .eslintcache
+.hintrc
 
 # Generated files
 *.module.scss.d.ts

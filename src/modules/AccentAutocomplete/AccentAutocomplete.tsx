@@ -13,8 +13,19 @@ type AccentAutocompleteProps = AutocompleteBaseComponentProps;
 export function AccentAutocomplete(props: AccentAutocompleteProps): React.ReactElement {
     const { id, label, disabled, helperText, onChange, placeholder, valid, value } = props;
 
-    const { InputBaseInput, InputBaseLabel, TextFieldBaseHelperText, OptionsPopup } = AutocompleteBaseGenerator({
+    const inputContainerId = `${id}-input-container`;
+
+    const [showOptionsPopup, setShowOptionsPopup] = React.useState(false);
+
+    const toggleOptionsPopup = () => {
+        setShowOptionsPopup((prev) => !prev);
+    };
+
+    const { InputBaseInput, InputBaseLabel, TextFieldBaseHelperText, PopoverBase } = AutocompleteBaseGenerator({
         ...props,
+        showOptionsPopup,
+        onFocus: toggleOptionsPopup,
+        elementIdForOptionsPopup: inputContainerId,
         disabledClassName: styles.disabled,
         helperTextClassName: styles.helperText,
         inputClassName: styles.input,
@@ -26,17 +37,17 @@ export function AccentAutocomplete(props: AccentAutocompleteProps): React.ReactE
         <div className={styles.accentAutocompleteContainer}>
             {InputBaseLabel}
 
-            <div className={styles.inputContainer}>
+            <div id={inputContainerId} className={styles.inputContainer}>
                 {InputBaseInput}
 
                 <button>test</button>
 
-                <button>test</button>
+                <button onClick={toggleOptionsPopup}>test</button>
             </div>
 
             {TextFieldBaseHelperText}
 
-            {OptionsPopup}
+            {PopoverBase}
         </div>
     );
 }
